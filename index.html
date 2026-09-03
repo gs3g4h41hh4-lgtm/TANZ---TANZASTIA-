@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TANZASTIA Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #f0c040;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* ===== الشعار والصورة ===== */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 3px solid #f0c040;
+            box-shadow: 0 0 30px rgba(240, 192, 64, 0.2);
+            background: #0a0a0a;
+            padding: 10px;
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #f0c040;
+            text-shadow: 0 0 20px rgba(240, 192, 64, 0.3);
+            margin-top: 10px;
+        }
+
+        .logo-text span {
+            color: #ff0000;
+        }
+
+        /* ===== العنوان ===== */
+        h1 {
+            font-size: 2.5rem;
+            color: #f0c040;
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            color: rgba(240, 192, 64, 0.6);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* ===== الأزرار ===== */
+        .btn {
+            background: #f0c040;
+            color: #0a0a0a;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(240, 192, 64, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #f0c040;
+            border: 2px solid #f0c040;
+        }
+
+        .btn-outline:hover {
+            background: #f0c040;
+            color: #0a0a0a;
+        }
+
+        .btn-danger {
+            background: #ff0000;
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background: #cc0000;
+        }
+
+        /* ===== الحالة ===== */
+        .status-box {
+            margin: 30px auto;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(240, 192, 64, 0.2);
+            display: inline-block;
+            background: rgba(240, 192, 64, 0.05);
+        }
+
+        .status-box.online {
+            border-color: #4caf50;
+            color: #4caf50;
+        }
+
+        .status-box.offline {
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        /* ===== القصيدة ===== */
+        .poem {
+            margin: 40px 0;
+            padding: 20px;
+            border-top: 1px solid rgba(240, 192, 64, 0.1);
+            border-bottom: 1px solid rgba(240, 192, 64, 0.1);
+            color: rgba(240, 192, 64, 0.4);
+            font-size: 0.9rem;
+            line-height: 2;
+            font-style: italic;
+        }
+
+        /* ===== الفوتر ===== */
+        .footer {
+            margin-top: 40px;
+            color: rgba(240, 192, 64, 0.15);
+            font-size: 0.8rem;
+        }
+
+        .footer span {
+            color: #ff0000;
+        }
+
+        /* ===== البوتات ===== */
+        .bot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .bot-card {
+            background: rgba(240, 192, 64, 0.05);
+            border: 1px solid rgba(240, 192, 64, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .bot-card:hover {
+            border-color: #f0c040;
+            box-shadow: 0 0 20px rgba(240, 192, 64, 0.1);
+        }
+
+        .bot-card .bot-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #f0c040;
+        }
+
+        .bot-card .bot-status {
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .bot-card .bot-status.online {
+            color: #4caf50;
+        }
+
+        .bot-card .bot-status.offline {
+            color: #ff0000;
+        }
+
+        .bot-card .bot-version {
+            color: rgba(240, 192, 64, 0.4);
+            font-size: 0.8rem;
+        }
+
+        .bot-card .bot-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .bot-card .btn-sm {
+            padding: 6px 15px;
+            font-size: 0.8rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .bot-card .btn-sm:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-sm.green {
+            background: #4caf50;
+            color: #fff;
+        }
+
+        .btn-sm.red {
+            background: #ff0000;
+            color: #fff;
+        }
+
+        .btn-sm.yellow {
+            background: #f0c040;
+            color: #0a0a0a;
+        }
+
+        .btn-sm.gray {
+            background: #333;
+            color: #aaa;
+        }
+
+        /* ===== إضافة بوت ===== */
+        .add-bot {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .add-bot input {
+            background: #1a1a1a;
+            border: 1px solid rgba(240, 192, 64, 0.3);
+            color: #f0c040;
+            padding: 12px 20px;
+            border-radius: 8px;
+            width: 280px;
+            font-size: 1rem;
+        }
+
+        .add-bot input:focus {
+            outline: none;
+            border-color: #f0c040;
+        }
+
+        .add-bot input::placeholder {
+            color: rgba(240, 192, 64, 0.3);
+        }
+
+        /* ===== توافق مع Render ===== */
+        @media (max-width: 600px) {
+            .logo-text {
+                font-size: 2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .bot-grid {
+                grid-template-columns: 1fr;
+            }
+            .add-bot input {
+                width: 100%;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== الشعار والصورة ===== -->
+        <div class="logo-container">
+            <img src="bot.png" alt="TANZASTIA" class="logo-img" id="botLogo">
+            <div class="logo-text">TANZ<span>ASTIA</span></div>
+        </div>
+
+        <!-- ===== العنوان ===== -->
+        <h1>منصة TANZASTIA</h1>
+        <p class="subtitle">تشغيل وإدارة بوتات TANZASTIA على مدار الساعة</p>
+
+        <!-- ===== الحالة ===== -->
+        <div class="status-box online" id="statusBox">
+            <span id="statusText">✅ المنصة تعمل</span>
+        </div>
+
+        <!-- ===== الأزرار الرئيسية ===== -->
+        <div>
+            <button class="btn" onclick="window.location.href='/dashboard.html'">🚀 دخول المنصة</button>
+            <button class="btn btn-outline" onclick="location.reload()">🔄 تحديث</button>
+        </div>
+
+        <!-- ===== إضافة بوت سريع ===== -->
+        <div class="add-bot">
+            <input type="text" id="botName" placeholder="اسم البوت الجديد">
+            <button class="btn" onclick="addBot()">➕ إضافة بوت</button>
+        </div>
+
+        <!-- ===== قائمة البوتات ===== -->
+        <h3 style="color: rgba(240,192,64,0.6); margin-top: 30px;">🤖 بوتاتي</h3>
+        <div class="bot-grid" id="botGrid">
+            <p style="color: rgba(240,192,64,0.3); grid-column: 1/-1;">جاري التحميل...</p>
+        </div>
+
+        <!-- ===== القصيدة ===== -->
+        <div class="poem">
+            <p>
+                "لا أنحني لغير خالقي، كبريائي سيفي، وعزتي تاجي الذي لا ينحني عن رأسي،<br>
+                أمشي على الدنيا، ولا أرى فوق الحق سلطانًا، ولا أبيع كرامتي ولو مُلِكَ الدهر كله."
+            </p>
+        </div>
+
+        <!-- ===== الفوتر ===== -->
+        <div class="footer">
+            TANZ<span>ASTIA</span> PRIM V3 | ₿
+        </div>
+
+    </div>
+
+    <script>
+        // ===== تحميل الحالة =====
+        async function loadStatus() {
+            try {
+                const res = await fetch('/api/status');
+                const data = await res.json();
+                const box = document.getElementById('statusBox');
+                const text = document.getElementById('statusText');
+                if (data.status === 'online') {
+                    box.className = 'status-box online';
+                    text.textContent = `✅ المنصة تعمل | V${data.version}`;
+                } else {
+                    box.className = 'status-box offline';
+                    text.textContent = '❌ المنصة متوقفة';
+                }
+            } catch {
+                document.getElementById('statusText').textContent = '❌ غير متصل';
+            }
+        }
+
+        // ===== تحميل البوتات =====
+        async function loadBots() {
+            try {
+                const res = await fetch('/api/bots');
+                const data = await res.json();
+                const grid = document.getElementById('botGrid');
+
+                if (!data.bots || data.bots.length === 0) {
+                    grid.innerHTML = `<p style="color: rgba(240,192,64,0.3); grid-column: 1/-1;">لا توجد بوتات</p>`;
+                    return;
+                }
+
+                let html = '';
+                for (const bot of data.bots) {
+                    const statusClass = bot.status === 'running' ? 'online' : 'offline';
+                    const statusText = bot.status === 'running' ? '🟢 Online' : '🔴 Offline';
+                    html += `
+                        <div class="bot-card">
+                            <div class="bot-name">🤖 ${bot.name}</div>
+                            <div class="bot-status ${statusClass}">${statusText}</div>
+                            <div class="bot-version">الإصدار: V${bot.version || '3.0.0'}</div>
+                            <div class="bot-actions">
+                                <button class="btn-sm yellow" onclick="window.location.href='/bot.html?id=${bot.id}'">📊</button>
+                                ${bot.status === 'running' ?
+                                    `<button class="btn-sm red" onclick="stopBot('${bot.id}')">⏹</button>` :
+                                    `<button class="btn-sm green" onclick="startBot('${bot.id}')">▶</button>`
+                                }
+                                <button class="btn-sm gray" onclick="deleteBot('${bot.id}')">🗑</button>
+                            </div>
+                        </div>
+                    `;
+                }
+                grid.innerHTML = html;
+            } catch {
+                grid.innerHTML = `<p style="color: rgba(240,192,64,0.3); grid-column: 1/-1;">❌ فشل تحميل البوتات</p>`;
+            }
+        }
+
+        // ===== إضافة بوت =====
+        async function addBot() {
+            const name = document.getElementById('botName').value.trim();
+            if (!name) {
+                alert('يرجى إدخال اسم البوت');
+                return;
+            }
+            try {
+                const res = await fetch('/api/bots', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    document.getElementById('botName').value = '';
+                    loadBots();
+                } else {
+                    alert('❌ ' + data.error);
+                }
+            } catch {
+                alert('❌ خطأ في الاتصال');
+            }
+        }
+
+        // ===== تشغيل بوت =====
+        async function startBot(id) {
+            try {
+                await fetch(`/api/bots/${id}/start`, { method: 'POST' });
+                loadBots();
+            } catch {
+                alert('❌ فشل تشغيل البوت');
+            }
+        }
+
+        // ===== إيقاف بوت =====
+        async function stopBot(id) {
+            try {
+                await fetch(`/api/bots/${id}/stop`, { method: 'POST' });
+                loadBots();
+            } catch {
+                alert('❌ فشل إيقاف البوت');
+            }
+        }
+
+        // ===== حذف بوت =====
+        async function deleteBot(id) {
+            if (!confirm('هل أنت متأكد من حذف هذا البوت؟')) return;
+            try {
+                await fetch(`/api/bots/${id}`, { method: 'DELETE' });
+                loadBots();
+            } catch {
+                alert('❌ فشل حذف البوت');
+            }
+        }
+
+        // ===== تحميل كل شيء =====
+        loadStatus();
+        loadBots();
+        setInterval(loadStatus, 30000);
+        setInterval(loadBots, 10000);
+    </script>
+
+</body>
+  </html>
