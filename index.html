@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TANZASTIA | Rsheed - TANZ</title>
+    <title>TANZASTIA | الموقع الرسمي</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
         /* ===== RESET & BASE ===== */
@@ -14,7 +14,6 @@
         }
         html {
             scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
         }
         body {
             font-family: 'Cairo', sans-serif;
@@ -108,11 +107,6 @@
 
         /* ===== SECTIONS ===== */
         section {
-            min-height: 100vh;
-            scroll-snap-align: start;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 80px 8%;
             position: relative;
             z-index: 1;
@@ -132,6 +126,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         header .logo {
             font-size: 1.3rem;
@@ -145,8 +140,9 @@
         }
         header nav {
             display: flex;
-            gap: 28px;
+            gap: 20px;
             align-items: center;
+            flex-wrap: wrap;
         }
         header nav a {
             color: #888;
@@ -283,121 +279,6 @@
             letter-spacing: 4px;
         }
 
-        /* ===== BOTS (PLATFORM) ===== */
-        .bots-container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .add-bot {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-        .add-bot input {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(204, 0, 51, 0.08);
-            color: #ddd;
-            padding: 12px 22px;
-            border-radius: 60px;
-            width: 320px;
-            font-size: 1rem;
-            font-family: 'Cairo', sans-serif;
-            transition: all 0.3s ease;
-        }
-        .add-bot input:focus {
-            outline: none;
-            border-color: #cc0033;
-            background: rgba(255, 255, 255, 0.03);
-        }
-        .add-bot input::placeholder {
-            color: #555;
-        }
-        .add-bot .btn-add {
-            padding: 12px 32px;
-            background: #cc0033;
-            color: #fff;
-            border: none;
-            border-radius: 60px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Cairo', sans-serif;
-        }
-        .add-bot .btn-add:hover {
-            background: #e6003a;
-            transform: translateY(-2px);
-        }
-
-        .bots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .bot-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(204, 0, 51, 0.04);
-            border-radius: 16px;
-            padding: 25px 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-        .bot-card:hover {
-            border-color: rgba(204, 0, 51, 0.12);
-            transform: translateY(-4px);
-        }
-        .bot-card .bot-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #eee;
-            margin-bottom: 4px;
-        }
-        .bot-card .bot-status {
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin: 6px 0;
-        }
-        .bot-card .bot-status.online {
-            color: #4caf50;
-        }
-        .bot-card .bot-status.offline {
-            color: #ff4444;
-        }
-        .bot-card .bot-version {
-            color: #666;
-            font-size: 0.8rem;
-        }
-        .bot-card .bot-actions {
-            margin-top: 14px;
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .bot-card .btn-sm {
-            padding: 6px 18px;
-            border-radius: 40px;
-            border: 1px solid rgba(204, 0, 51, 0.08);
-            background: transparent;
-            color: #cc0033;
-            font-size: 0.7rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Cairo', sans-serif;
-        }
-        .bot-card .btn-sm:hover {
-            background: #cc0033;
-            color: #fff;
-        }
-        .bot-card .btn-sm.danger:hover {
-            background: #ff4444;
-            border-color: #ff4444;
-        }
-
         /* ===== VERSIONS ===== */
         .versions-grid {
             display: grid;
@@ -453,190 +334,99 @@
             transition: all 0.3s ease;
             font-family: 'Cairo', sans-serif;
             margin: 4px;
+            text-decoration: none;
+            display: inline-block;
         }
         .version-card .v-btn:hover {
             background: #cc0033;
             color: #fff;
         }
 
-        /* ===== VIDEOS ===== */
-        .videos-grid {
+        /* ===== GUIDE SECTIONS ===== */
+        .guide-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             width: 100%;
             max-width: 1100px;
             margin: 0 auto;
         }
-        .video-card {
-            border-radius: 16px;
-            overflow: hidden;
+        .guide-card {
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(204, 0, 51, 0.04);
+            border-radius: 20px;
+            padding: 30px 25px;
             transition: all 0.4s ease;
-            cursor: pointer;
         }
-        .video-card:hover {
+        .guide-card:hover {
+            border-color: rgba(204, 0, 51, 0.12);
             transform: translateY(-4px);
-            border-color: rgba(204, 0, 51, 0.08);
         }
-        .video-thumb {
-            position: relative;
-            width: 100%;
-            height: 190px;
-            overflow: hidden;
-            background: #0f0f0f;
+        .guide-card .guide-icon {
+            font-size: 2.5rem;
+            color: #cc0033;
+            margin-bottom: 10px;
         }
-        .video-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .guide-card h3 {
+            color: #eee;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
         }
-        .video-thumb .play {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(204, 0, 51, 0.85);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: #fff;
+        .guide-card p {
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.8;
         }
-        .video-info {
-            padding: 18px 22px;
+        .guide-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .guide-card ul li {
+            color: #999;
+            font-size: 0.85rem;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .guide-card ul li::before {
+            content: "• ";
+            color: #cc0033;
+        }
+
+        /* ===== API KEY SECTION ===== */
+        .api-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(204, 0, 51, 0.06);
+            border-radius: 16px;
+            padding: 30px;
             text-align: center;
         }
-        .video-info h4 {
-            font-size: 0.95rem;
-            color: #ccc;
-            font-weight: 700;
-        }
-
-        /* ===== MEDIA ===== */
-        .media-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            justify-content: center;
-        }
-        .media-btn {
+        .api-box .api-link {
+            display: inline-block;
             padding: 12px 30px;
-            border-radius: 60px;
-            border: 1px solid rgba(204, 0, 51, 0.06);
-            background: rgba(255, 255, 255, 0.02);
-            color: #aaa;
-            font-size: 0.95rem;
-            font-weight: 700;
-            font-family: 'Cairo', sans-serif;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .media-btn:hover {
             background: #cc0033;
             color: #fff;
-            border-color: #cc0033;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        .api-box .api-link:hover {
+            background: #e6003a;
             transform: translateY(-2px);
         }
-
-        /* ===== INSTALLATION ===== */
-        .code-wrap {
-            max-width: 780px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .code-block {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(204, 0, 51, 0.04);
-            border-radius: 12px;
-            padding: 14px 20px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            transition: all 0.3s ease;
-            font-family: 'Courier New', monospace;
-            direction: ltr;
-            text-align: left;
-        }
-        .code-block:hover {
-            border-color: rgba(204, 0, 51, 0.08);
-        }
-        .code-block code {
-            color: #ccc;
+        .api-box .steps {
+            text-align: right;
+            color: #999;
             font-size: 0.9rem;
-            word-break: break-all;
+            line-height: 2;
         }
-        .code-block .copy-btn {
-            background: transparent;
-            border: 1px solid rgba(204, 0, 51, 0.08);
+        .api-box .steps span {
             color: #cc0033;
-            padding: 4px 16px;
-            border-radius: 30px;
-            font-size: 0.7rem;
             font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Cairo', sans-serif;
-            flex-shrink: 0;
-        }
-        .code-block .copy-btn:hover {
-            background: #cc0033;
-            color: #fff;
-            border-color: #cc0033;
-        }
-
-        /* ===== FAQ ===== */
-        .faq-wrap {
-            max-width: 720px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .faq-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-            padding: 16px 0;
-        }
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        .faq-question {
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 700;
-            color: #ccc;
-            font-size: 1rem;
-            gap: 15px;
-            padding: 4px 0;
-        }
-        .faq-question .arrow {
-            color: #cc0033;
-            transition: transform 0.3s ease;
-            font-size: 1.1rem;
-        }
-        .faq-question .arrow.open {
-            transform: rotate(180deg);
-        }
-        .faq-answer {
-            color: #777;
-            font-size: 0.9rem;
-            line-height: 1.9;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            padding: 0 20px;
-        }
-        .faq-answer.open {
-            max-height: 300px;
-            padding: 12px 20px 0;
         }
 
         /* ===== FOOTER ===== */
@@ -657,8 +447,24 @@
             font-size: 0.75rem;
             letter-spacing: 3px;
         }
+        footer .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        footer .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+        footer .footer-links a:hover {
+            color: #cc0033;
+        }
 
-        /* ===== SCROLL TO TOP ===== */
+        /* ===== SCROLL TOP ===== */
         #scrollTop {
             position: fixed;
             bottom: 28px;
@@ -710,7 +516,7 @@
                 max-width: 340px;
             }
             header nav {
-                gap: 16px;
+                gap: 12px;
             }
             header nav a {
                 font-size: 0.7rem;
@@ -725,11 +531,8 @@
             .versions-grid {
                 grid-template-columns: 1fr;
             }
-            .bots-grid {
+            .guide-grid {
                 grid-template-columns: 1fr;
-            }
-            .add-bot input {
-                width: 100%;
             }
         }
 
@@ -738,10 +541,10 @@
                 padding: 12px 5%;
             }
             header nav {
-                gap: 12px;
+                gap: 10px;
             }
             header nav a {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
             }
             header .logo {
                 font-size: 0.85rem;
@@ -764,6 +567,9 @@
             }
             .section-title {
                 font-size: 1.8rem;
+            }
+            .api-box {
+                padding: 20px;
             }
         }
     </style>
@@ -792,8 +598,9 @@
         <nav>
             <a href="#hero">الرئيسية</a>
             <a href="#versions">الإصدارات</a>
-            <a href="#videos">الفيديوهات</a>
-            <a href="#install">التثبيت</a>
+            <a href="#guides">الشروحات</a>
+            <a href="#api">API Key</a>
+            <a href="#support">الدعم</a>
         </nav>
     </header>
 
@@ -809,8 +616,8 @@
                     ولا أبيع كرامتي ولو مُلِكَ الدهر كله."
                 </div>
                 <div class="btn-group">
-                    <button class="btn-primary" onclick="alert('جارٍ تحميل البوت...')">⬇ تحميل البوت</button>
-                    <a href="#versions" class="btn-outline">استكشف الإصدارات</a>
+                    <a href="#versions" class="btn-primary">⬇ تحميل البوت</a>
+                    <a href="#guides" class="btn-outline">استكشف الشروحات</a>
                 </div>
             </div>
             <div class="hero-right">
@@ -821,149 +628,114 @@
         </div>
     </section>
 
-    <!-- ===== BOTS (PLATFORM) ===== -->
-    <section id="bots" style="min-height: auto; padding: 60px 8%; scroll-snap-align: none;">
-        <div class="bots-container">
-            <h2 class="section-title">🤖 بوتاتي</h2>
-            <div class="add-bot">
-                <input type="text" id="botName" placeholder="اسم البوت الجديد" />
-                <button class="btn-add" onclick="addBot()">➕ إضافة بوت</button>
-            </div>
-            <div class="bots-grid" id="botsGrid">
-                <p style="color: #555; text-align: center; grid-column: 1/-1;">جاري تحميل البوتات...</p>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== VERSIONS ===== -->
     <section id="versions">
+        <h2 class="section-title">📦 الإصدارات</h2>
         <div class="versions-grid">
             <div class="version-card">
-                <div class="v-badge">★ الإصدار الأساسي</div>
-                <div class="v-name">TANZASTIA PRIM (v3)</div>
-                <div class="v-desc">النسخة الأساسية والمتطورة من البوت.</div>
-                <button class="v-btn" onclick="alert('جارٍ تحميل V3...')">تحميل</button>
+                <div class="v-badge">● الإصدار الأول</div>
+                <div class="v-name">TANZASTIA V1.1.0</div>
+                <div class="v-desc">الانطلاقة الأولى لمشروع TANZASTIA.</div>
+                <a href="https://t.me/AURATANZASTIA/11" target="_blank" class="v-btn">⬇ تحميل V1</a>
             </div>
             <div class="version-card">
                 <div class="v-badge">✦ الإصدار المميز</div>
-                <div class="v-name">TANZASTIA AURA (v2)</div>
+                <div class="v-name">TANZASTIA AURA V2.0.0</div>
                 <div class="v-desc">نسخة Aura المميزة مع إضافات خاصة.</div>
-                <button class="v-btn" onclick="alert('جارٍ تحميل V2...')">تحميل</button>
+                <a href="https://t.me/AURATANZASTIA/18" target="_blank" class="v-btn">⬇ تحميل V2</a>
             </div>
             <div class="version-card">
-                <div class="v-badge">● الإصدار الأول</div>
-                <div class="v-name">TANZASTIA V1.0.0</div>
-                <div class="v-desc">الانطلاقة الأولى لمشروع TANZASTIA.</div>
-                <button class="v-btn" onclick="alert('جارٍ تحميل V1...')">تحميل</button>
+                <div class="v-badge">★ الإصدار النهائي</div>
+                <div class="v-name">TANZASTIA PRIM V3.0.0</div>
+                <div class="v-desc">النسخة الأساسية والمتطورة من البوت.</div>
+                <a href="https://t.me/AURATANZASTIA/66" target="_blank" class="v-btn">⬇ تحميل PRIM</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== VIDEOS ===== -->
-    <section id="videos">
-        <h2 class="section-title">🎥 فيديوهات تعليمية</h2>
-        <div class="videos-grid">
-            <div class="video-card" onclick="window.open('https://youtube.com','_blank')">
-                <div class="video-thumb">
-                    <img src="https://via.placeholder.com/480x360/0a0a0a/cc0033?text=TANZASTIA" alt="فيديو 1" />
-                    <div class="play">▶</div>
-                </div>
-                <div class="video-info">
-                    <h4>شرح تثبيت TANZASTIA</h4>
-                </div>
+    <!-- ===== GUIDES ===== -->
+    <section id="guides">
+        <h2 class="section-title">📖 الشروحات</h2>
+        <div class="guide-grid">
+            <!-- ===== HIJOKO ===== -->
+            <div class="guide-card">
+                <div class="guide-icon">🧠</div>
+                <h3>شرح HIJOKO</h3>
+                <p>HIJOKO هو الذكاء الاصطناعي الرسمي لـ TANZASTIA، وهو ليس مجرد AI عادي، بل كيان برمجي له:</p>
+                <ul>
+                    <li>شخصية ثابتة وقوية</li>
+                    <li>ذاكرة دائمة للمحادثات</li>
+                    <li>إرادة مستقلة (WILL)</li>
+                    <li>نظام ثقة داخلي (Trust)</li>
+                    <li>قرارات مبنية على السياق</li>
+                    <li>يتفاعل بدون أوامر (نداء طبيعي)</li>
+                </ul>
             </div>
-            <div class="video-card" onclick="window.open('https://youtube.com','_blank')">
-                <div class="video-thumb">
-                    <img src="https://via.placeholder.com/480x360/0a0a0a/cc0033?text=TANZASTIA" alt="فيديو 2" />
-                    <div class="play">▶</div>
-                </div>
-                <div class="video-info">
-                    <h4>شرح أوامر البوت</h4>
-                </div>
+
+            <!-- ===== Multi-Account ===== -->
+            <div class="guide-card">
+                <div class="guide-icon">👤</div>
+                <h3>شرح Multi-Account</h3>
+                <p>نظام الحسابات المتعددة يتيح لكل مستخدم:</p>
+                <ul>
+                    <li>UID ثابت خاص به</li>
+                    <li>بروفايل مستقل (اسم، صورة، وصف)</li>
+                    <li>قائمة أصدقاء وطلبات صداقة</li>
+                    <li>إعدادات خاصة (لغة، ثيم، خصوصية)</li>
+                    <li>أجهزة مسجلة متعددة</li>
+                    <li>الأوامر المخصصة تنتقل معه</li>
+                </ul>
             </div>
-            <div class="video-card" onclick="window.open('https://youtube.com','_blank')">
-                <div class="video-thumb">
-                    <img src="https://via.placeholder.com/480x360/0a0a0a/cc0033?text=TANZASTIA" alt="فيديو 3" />
-                    <div class="play">▶</div>
-                </div>
-                <div class="video-info">
-                    <h4>تحديث TANZASTIA</h4>
-                </div>
+
+            <!-- ===== UPDATE ===== -->
+            <div class="guide-card">
+                <div class="guide-icon">🔄</div>
+                <h3>شرح نظام التحديث</h3>
+                <p>نظام التحديث يتيح لك:</p>
+                <ul>
+                    <li>تحديث البوت تلقائياً عبر الأمر .تحديث</li>
+                    <li>إشعارات فورية عند توفر إصدار جديد</li>
+                    <li>تحديث من الموقع الرسمي مباشرة</li>
+                    <li>التحقق من الإصدار الحالي</li>
+                    <li>عرض التغييرات الجديدة</li>
+                    <li>تأكيد وإلغاء التحديث</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- ===== MEDIA ===== -->
-    <section id="media" style="min-height: auto; padding: 60px 8%; scroll-snap-align: none;">
-        <h2 class="section-title">🌐 وسائل التواصل</h2>
-        <div class="media-grid">
-            <a href="#" class="media-btn">🎵 TikTok</a>
-            <a href="#" class="media-btn">📺 YouTube</a>
-            <a href="#" class="media-btn">✈️ Telegram</a>
-            <a href="#" class="media-btn">💬 WhatsApp</a>
+    <!-- ===== API KEY ===== -->
+    <section id="api">
+        <h2 class="section-title">🔑 Gemini API Key</h2>
+        <div class="api-box">
+            <p style="color: #999; margin-bottom: 15px;">للحصول على مفتاح Gemini API لتشغيل HIJOKO:</p>
+            <a href="https://aistudio.google.com/apikey" target="_blank" class="api-link">🎯 الذهاب إلى Google AI Studio</a>
+            <div class="steps">
+                <p><span>1.</span> سجل دخول بحساب Google الخاص بك.</p>
+                <p><span>2.</span> اضغط على "Get API Key" أو "Create API Key".</p>
+                <p><span>3.</span> اختر المشروع أو أنشئ مشروعاً جديداً.</p>
+                <p><span>4.</span> انسخ المفتاح وضعه في ملف <span>.env</span> داخل مجلد البوت.</p>
+                <p><span>5.</span> اكتب الأمر <span>.ai</span> أو <span>.هيجوكو</span> لتجربة الذكاء الاصطناعي.</p>
+            </div>
+            <p style="color: #555; font-size: 0.8rem; margin-top: 15px;">📌 المفتاح مجاني، والحدود كافية لاستخدام البوت اليومي.</p>
         </div>
     </section>
 
-    <!-- ===== INSTALLATION ===== -->
-    <section id="install">
-        <div class="code-wrap">
-            <h2 class="section-title">⚡ التثبيت على Termux</h2>
-            <div class="code-block">
-                <code>pkg update && pkg upgrade -y</code>
-                <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
-            </div>
-            <div class="code-block">
-                <code>pkg install nodejs git ffmpeg -y</code>
-                <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
-            </div>
-            <div class="code-block">
-                <code>git clone https://github.com/RASHEED-TANZ/TANZASTIA_P.git</code>
-                <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
-            </div>
-            <div class="code-block">
-                <code>cd TANZASTIA_P && npm install</code>
-                <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
-            </div>
-            <div class="code-block">
-                <code>npm start</code>
-                <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
-            </div>
-            <p style="color: #555; font-size: 0.8rem; margin-top: 15px; text-align: center;">📌 تأكد من تشغيل Termux على Android</p>
-        </div>
-    </section>
-
-    <!-- ===== FAQ ===== -->
-    <section id="faq" style="min-height: auto; padding: 60px 8%; scroll-snap-align: none;">
-        <h2 class="section-title">❓ الأسئلة الشائعة</h2>
-        <div class="faq-wrap">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>ما هو TANZASTIA؟</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="faq-answer">TANZASTIA هو بوت واتساب متطور يدعم Multi-Account، سيرفرات، أوامر مخصصة، وذكاء اصطناعي.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>هل TANZASTIA مجاني؟</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="faq-answer">نعم، TANZASTIA مجاني بالكامل ولا يحتاج أي اشتراكات.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>كيف أحدث TANZASTIA؟</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="faq-answer">استخدم الأمر .تحديث في واتساب أو قم بتنزيل أحدث إصدار من الموقع.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>ماذا تفعل منصة TANZASTIA؟</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="faq-answer">المنصة تسمح لك بتشغيل وإدارة بوتات TANZASTIA على سيرفر 24/7 بدون الحاجة لهاتفك.</div>
-            </div>
+    <!-- ===== SUPPORT ===== -->
+    <section id="support">
+        <h2 class="section-title">💬 خدمة العملاء</h2>
+        <div style="max-width: 600px; margin: 0 auto; text-align: center; background: rgba(255,255,255,0.02); border: 1px solid rgba(204,0,51,0.04); border-radius: 16px; padding: 40px 30px;">
+            <div style="font-size: 3rem; margin-bottom: 15px;">🛠️</div>
+            <p style="color: #888; font-size: 1.1rem; line-height: 2;">
+                قريباً..<br>
+                سيتم تفعيل خدمة العملاء لتلقي الاستفسارات والمشاكل.
+            </p>
+            <p style="color: #555; font-size: 0.9rem; margin-top: 15px;">
+                للإبلاغ عن مشكلة حالياً، تواصل عبر قناة التلغرام.
+            </p>
+            <a href="https://t.me/AURATANZASTIA" target="_blank" style="display: inline-block; margin-top: 20px; padding: 12px 30px; background: #cc0033; color: #fff; border-radius: 60px; text-decoration: none; font-weight: 700; transition: all 0.3s ease;">
+                📢 القناة الرسمية
+            </a>
         </div>
     </section>
 
@@ -971,9 +743,17 @@
     <footer>
         <p>© 2026 TANZASTIA — جميع الحقوق محفوظة</p>
         <div class="credit">✦ R S H E E D — T A N Z ✦</div>
+        <div class="footer-links">
+            <a href="https://t.me/AURATANZASTIA" target="_blank">قناة التلغرام</a>
+            <a href="#hero">الرئيسية</a>
+            <a href="#versions">الإصدارات</a>
+            <a href="#guides">الشروحات</a>
+            <a href="#api">API Key</a>
+            <a href="#support">الدعم</a>
+        </div>
     </footer>
 
-    <!-- ===== SCROLL TO TOP ===== -->
+    <!-- ===== SCROLL TOP ===== -->
     <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
     <script>
@@ -982,7 +762,7 @@
             document.getElementById('loading').classList.add('hide');
         });
 
-        // ===== SCROLL TO TOP =====
+        // ===== SCROLL TOP =====
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('scrollTop');
             if (window.scrollY > 400) {
@@ -991,117 +771,6 @@
                 btn.classList.remove('visible');
             }
         });
-
-        // ===== FAQ =====
-        function toggleFaq(el) {
-            const answer = el.nextElementSibling;
-            const arrow = el.querySelector('.arrow');
-            answer.classList.toggle('open');
-            arrow.classList.toggle('open');
-        }
-
-        // ===== COPY =====
-        function copyCode(el) {
-            const code = el.parentElement.querySelector('code').innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                el.textContent = 'تم النسخ ✅';
-                setTimeout(() => { el.textContent = 'نسخ'; }, 1500);
-            }).catch(() => {
-                alert('اضغط Ctrl+C لنسخ الأمر');
-            });
-        }
-
-        // ===== BOTS API =====
-        async function loadBots() {
-            try {
-                const res = await fetch('/api/bots');
-                const data = await res.json();
-                const grid = document.getElementById('botsGrid');
-
-                if (!data.bots || data.bots.length === 0) {
-                    grid.innerHTML = `<p style="color: #555; text-align: center; grid-column: 1/-1;">لا توجد بوتات</p>`;
-                    return;
-                }
-
-                let html = '';
-                for (const bot of data.bots) {
-                    const statusClass = bot.status === 'running' ? 'online' : 'offline';
-                    const statusText = bot.status === 'running' ? '🟢 Online' : '🔴 Offline';
-                    html += `
-                        <div class="bot-card">
-                            <div class="bot-name">🤖 ${bot.name}</div>
-                            <div class="bot-status ${statusClass}">${statusText}</div>
-                            <div class="bot-version">الإصدار: V${bot.version || '3.0.0'}</div>
-                            <div class="bot-actions">
-                                ${bot.status === 'running' ?
-                                    `<button class="btn-sm" onclick="stopBot('${bot.id}')">⏹ إيقاف</button>` :
-                                    `<button class="btn-sm" onclick="startBot('${bot.id}')">▶ تشغيل</button>`
-                                }
-                                <button class="btn-sm" onclick="restartBot('${bot.id}')">🔄 إعادة</button>
-                                <button class="btn-sm danger" onclick="deleteBot('${bot.id}')">🗑 حذف</button>
-                            </div>
-                        </div>
-                    `;
-                }
-                grid.innerHTML = html;
-            } catch (e) {
-                grid.innerHTML = `<p style="color: #555; text-align: center; grid-column: 1/-1;">❌ فشل تحميل البوتات</p>`;
-            }
-        }
-
-        async function addBot() {
-            const name = document.getElementById('botName').value.trim();
-            if (!name) { alert('يرجى إدخال اسم البوت'); return; }
-            try {
-                const res = await fetch('/api/bots', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name })
-                });
-                const data = await res.json();
-                if (data.success) {
-                    document.getElementById('botName').value = '';
-                    loadBots();
-                } else {
-                    alert('❌ ' + data.error);
-                }
-            } catch {
-                alert('❌ خطأ في الاتصال');
-            }
-        }
-
-        async function startBot(id) {
-            try {
-                await fetch(`/api/bots/${id}/start`, { method: 'POST' });
-                loadBots();
-            } catch { alert('❌ فشل تشغيل البوت'); }
-        }
-
-        async function stopBot(id) {
-            try {
-                await fetch(`/api/bots/${id}/stop`, { method: 'POST' });
-                loadBots();
-            } catch { alert('❌ فشل إيقاف البوت'); }
-        }
-
-        async function restartBot(id) {
-            try {
-                await fetch(`/api/bots/${id}/restart`, { method: 'POST' });
-                setTimeout(loadBots, 1500);
-            } catch { alert('❌ فشل إعادة التشغيل'); }
-        }
-
-        async function deleteBot(id) {
-            if (!confirm('هل أنت متأكد من حذف هذا البوت؟')) return;
-            try {
-                await fetch(`/api/bots/${id}`, { method: 'DELETE' });
-                loadBots();
-            } catch { alert('❌ فشل حذف البوت'); }
-        }
-
-        // ===== LOAD =====
-        loadBots();
-        setInterval(loadBots, 10000);
     </script>
 
 </body>
