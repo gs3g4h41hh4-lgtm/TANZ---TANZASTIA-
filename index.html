@@ -1,777 +1,1246 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TANZASTIA | الموقع الرسمي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
-    <style>
-        /* ===== RESET & BASE ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: #080808;
-            color: #ddd;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-        ::selection {
-            background: #cc0033;
-            color: #fff;
-        }
-        ::-webkit-scrollbar {
-            width: 3px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #080808;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cc0033;
-            border-radius: 10px;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="TANZASTIA - الموقع الرسمي لمشروع TANZASTIA. الإصدار الحالي: TANZASTIA PRIM V3.0.0" />
+<title>TANZASTIA | الموقع الرسمي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #080808;
+    color: #ddd;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+::selection { background: #cc0033; color: #fff; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #080808; }
+::-webkit-scrollbar-thumb { background: #cc0033; border-radius: 10px; }
 
-        /* ===== BACKGROUND LINES ===== */
-        .bg-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .bg-lines .line {
-            position: absolute;
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(204, 0, 51, 0.06), transparent);
-            animation: moveLine 8s linear infinite;
-        }
-        .bg-lines .line:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .bg-lines .line:nth-child(2) { left: 25%; animation-delay: 1.5s; }
-        .bg-lines .line:nth-child(3) { left: 40%; animation-delay: 3s; }
-        .bg-lines .line:nth-child(4) { left: 55%; animation-delay: 4.5s; }
-        .bg-lines .line:nth-child(5) { left: 70%; animation-delay: 6s; }
-        .bg-lines .line:nth-child(6) { left: 85%; animation-delay: 7.5s; }
-        @keyframes moveLine {
-            0% { transform: translateY(-100%); opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { transform: translateY(100%); opacity: 0; }
-        }
+/* ===== BACKGROUND ===== */
+.bg-lines {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.bg-lines .line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(204,0,51,0.06), transparent);
+    animation: moveLine 8s linear infinite;
+}
+.bg-lines .line:nth-child(1) { left: 10%; animation-delay: 0s; }
+.bg-lines .line:nth-child(2) { left: 25%; animation-delay: 1.5s; }
+.bg-lines .line:nth-child(3) { left: 40%; animation-delay: 3s; }
+.bg-lines .line:nth-child(4) { left: 55%; animation-delay: 4.5s; }
+.bg-lines .line:nth-child(5) { left: 70%; animation-delay: 6s; }
+.bg-lines .line:nth-child(6) { left: 85%; animation-delay: 7.5s; }
+@keyframes moveLine {
+    0% { transform: translateY(-100%); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+}
 
-        /* ===== LOADING ===== */
-        #loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #080808;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease;
-        }
-        #loading.hide {
-            opacity: 0;
-            pointer-events: none;
-        }
-        #loading .logo-load {
-            font-size: 4.5rem;
-            font-weight: 900;
-            color: #cc0033;
-            letter-spacing: 12px;
-            animation: loadPulse 1.4s ease-in-out infinite;
-        }
-        @keyframes loadPulse {
-            0%, 100% { opacity: 1; transform: scale(1); text-shadow: 0 0 30px rgba(204, 0, 51, 0.2); }
-            50% { opacity: 0.3; transform: scale(0.95); text-shadow: 0 0 60px rgba(204, 0, 51, 0.05); }
-        }
-        #loading .sub-load {
-            margin-top: 15px;
-            color: #444;
-            font-size: 0.8rem;
-            letter-spacing: 6px;
-        }
+/* ===== LOADING ===== */
+#loading {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #080808;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease;
+}
+#loading.hide { opacity: 0; pointer-events: none; }
+#loading .logo-load {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: #cc0033;
+    letter-spacing: 12px;
+    animation: loadPulse 1.4s ease-in-out infinite;
+}
+@keyframes loadPulse {
+    0%, 100% { opacity: 1; transform: scale(1); text-shadow: 0 0 30px rgba(204,0,51,0.2); }
+    50% { opacity: 0.3; transform: scale(0.95); text-shadow: 0 0 60px rgba(204,0,51,0.05); }
+}
+#loading .sub-load { margin-top: 15px; color: #444; font-size: 0.8rem; letter-spacing: 6px; }
 
-        /* ===== SECTIONS ===== */
-        section {
-            padding: 80px 8%;
-            position: relative;
-            z-index: 1;
-        }
+/* ===== HEADER ===== */
+header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 16px 6%;
+    background: rgba(8,8,8,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(204,0,51,0.06);
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #cc0033;
+    letter-spacing: 6px;
+    cursor: pointer;
+}
+header .logo span { color: #555; font-weight: 300; }
+header nav {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+header nav a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+header nav a:hover { color: #cc0033; }
 
-        /* ===== HEADER ===== */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 18px 8%;
-            background: rgba(8, 8, 8, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(204, 0, 51, 0.06);
-            z-index: 999;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        header .logo {
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: #cc0033;
-            letter-spacing: 6px;
-        }
-        header .logo span {
-            color: #555;
-            font-weight: 300;
-        }
-        header nav {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        header nav a {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            letter-spacing: 1px;
-        }
-        header nav a:hover {
-            color: #cc0033;
-        }
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: #cc0033;
+    transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* ===== HERO ===== */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            padding-top: 100px;
-            max-width: 1300px;
-            width: 100%;
-            margin: 0 auto;
-        }
-        .hero-left .badge {
-            display: inline-block;
-            padding: 4px 16px;
-            border: 1px solid rgba(204, 0, 51, 0.12);
-            border-radius: 50px;
-            font-size: 0.65rem;
-            color: #cc0033;
-            letter-spacing: 4px;
-            margin-bottom: 25px;
-            background: rgba(204, 0, 51, 0.03);
-        }
-        .hero-left .poem {
-            font-size: 1.2rem;
-            line-height: 2.6;
-            color: #bbb;
-            font-weight: 300;
-            border-right: 2px solid #cc0033;
-            padding-right: 28px;
-        }
-        .hero-left .poem .hl {
-            color: #cc0033;
-            font-weight: 700;
-        }
-        .hero-left .btn-group {
-            margin-top: 35px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .hero-left .btn-primary {
-            padding: 14px 40px;
-            background: #cc0033;
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Cairo', sans-serif;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 8px 30px rgba(204, 0, 51, 0.15);
-        }
-        .hero-left .btn-primary:hover {
-            background: #e6003a;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(204, 0, 51, 0.2);
-        }
-        .hero-left .btn-outline {
-            padding: 14px 32px;
-            background: transparent;
-            border: 1px solid rgba(204, 0, 51, 0.15);
-            color: #cc0033;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Cairo', sans-serif;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .hero-left .btn-outline:hover {
-            background: rgba(204, 0, 51, 0.05);
-            border-color: #cc0033;
-        }
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0;
+    width: 100%;
+    background: rgba(8,8,8,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(204,0,51,0.08);
+    z-index: 998;
+    flex-direction: column;
+    padding: 20px 6%;
+    gap: 15px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+    color: #999;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    cursor: pointer;
+}
+.mobile-menu a:hover { color: #cc0033; }
 
-        .hero-right {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .hero-right .image-wrap {
-            width: 100%;
-            max-width: 480px;
-            aspect-ratio: 1/1;
-            border-radius: 50% 50% 20px 20px;
-            overflow: hidden;
-            border: 1px solid rgba(204, 0, 51, 0.08);
-            position: relative;
-            background: #0f0f0f;
-            box-shadow: 0 40px 120px rgba(204, 0, 51, 0.02);
-        }
-        .hero-right .image-wrap::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: 50% 50% 22px 22px;
-            background: linear-gradient(135deg, #cc0033, transparent 40%, transparent 60%, #cc0033);
-            opacity: 0.08;
-            z-index: -1;
-        }
-        .hero-right .image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+/* ===== SECTIONS ===== */
+section {
+    padding: 80px 6%;
+    position: relative;
+    z-index: 1;
+}
+.section-title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #cc0033;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 4px;
+}
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin-top: -40px;
+    margin-bottom: 50px;
+}
 
-        /* ===== SECTION TITLE ===== */
-        .section-title {
-            font-size: 2.6rem;
-            font-weight: 900;
-            color: #cc0033;
-            text-align: center;
-            margin-bottom: 60px;
-            letter-spacing: 4px;
-        }
+/* ===== HERO ===== */
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+}
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+}
+.hero-left .badge {
+    display: inline-block;
+    padding: 4px 16px;
+    border: 1px solid rgba(204,0,51,0.12);
+    border-radius: 50px;
+    font-size: 0.65rem;
+    color: #cc0033;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    background: rgba(204,0,51,0.03);
+}
+.hero-left h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #cc0033;
+    letter-spacing: 8px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+.hero-left .version-tag {
+    display: inline-block;
+    padding: 6px 20px;
+    background: rgba(204,0,51,0.05);
+    border: 1px solid rgba(204,0,51,0.1);
+    border-radius: 50px;
+    color: #cc0033;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+.hero-left .poem {
+    font-size: 1.1rem;
+    line-height: 2.4;
+    color: #bbb;
+    font-weight: 300;
+    border-right: 2px solid #cc0033;
+    padding-right: 25px;
+    margin-bottom: 30px;
+}
+.hero-left .poem .hl { color: #cc0033; font-weight: 700; }
+.hero-left .btn-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.btn {
+    padding: 13px 32px;
+    border-radius: 60px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+}
+.btn-primary {
+    background: #cc0033;
+    color: #fff;
+    box-shadow: 0 8px 30px rgba(204,0,51,0.15);
+}
+.btn-primary:hover {
+    background: #e6003a;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(204,0,51,0.2);
+}
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(204,0,51,0.15);
+    color: #cc0033;
+}
+.btn-outline:hover {
+    background: rgba(204,0,51,0.05);
+    border-color: #cc0033;
+}
+.hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-right .image-wrap {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 1/1;
+    border-radius: 50% 50% 20px 20px;
+    overflow: hidden;
+    border: 1px solid rgba(204,0,51,0.08);
+    position: relative;
+    background: #0f0f0f;
+    box-shadow: 0 40px 120px rgba(204,0,51,0.02);
+}
+.hero-right .image-wrap::before {
+    content: '';
+    position: absolute;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    border-radius: 50% 50% 22px 22px;
+    background: linear-gradient(135deg, #cc0033, transparent 40%, transparent 60%, #cc0033);
+    opacity: 0.08;
+    z-index: -1;
+}
+.hero-right .image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        /* ===== VERSIONS ===== */
-        .versions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .version-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(204, 0, 51, 0.04);
-            border-radius: 20px;
-            padding: 35px 25px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-        .version-card:hover {
-            border-color: rgba(204, 0, 51, 0.12);
-            transform: translateY(-6px);
-        }
-        .version-card .v-badge {
-            display: inline-block;
-            padding: 3px 14px;
-            border-radius: 50px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            background: #cc0033;
-            color: #fff;
-            letter-spacing: 2px;
-            margin-bottom: 14px;
-        }
-        .version-card .v-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #eee;
-            margin-bottom: 8px;
-        }
-        .version-card .v-desc {
-            color: #888;
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-        .version-card .v-btn {
-            padding: 8px 24px;
-            background: transparent;
-            border: 1px solid rgba(204, 0, 51, 0.12);
-            color: #cc0033;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Cairo', sans-serif;
-            margin: 4px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .version-card .v-btn:hover {
-            background: #cc0033;
-            color: #fff;
-        }
+/* ===== VERSIONS ===== */
+.versions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.version-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(204,0,51,0.04);
+    border-radius: 20px;
+    padding: 35px 25px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+.version-card:hover {
+    border-color: rgba(204,0,51,0.12);
+    transform: translateY(-6px);
+}
+.version-card .v-badge {
+    display: inline-block;
+    padding: 3px 14px;
+    border-radius: 50px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    background: #cc0033;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+.version-card .v-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #eee;
+    margin-bottom: 8px;
+}
+.version-card .v-desc {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+.version-card .v-btn {
+    padding: 8px 22px;
+    background: transparent;
+    border: 1px solid rgba(204,0,51,0.12);
+    color: #cc0033;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+    margin: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+.version-card .v-btn:hover {
+    background: #cc0033;
+    color: #fff;
+}
+.version-card .v-btn.filled {
+    background: #cc0033;
+    color: #fff;
+    border-color: #cc0033;
+}
 
-        /* ===== GUIDE SECTIONS ===== */
-        .guide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .guide-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(204, 0, 51, 0.04);
-            border-radius: 20px;
-            padding: 30px 25px;
-            transition: all 0.4s ease;
-        }
-        .guide-card:hover {
-            border-color: rgba(204, 0, 51, 0.12);
-            transform: translateY(-4px);
-        }
-        .guide-card .guide-icon {
-            font-size: 2.5rem;
-            color: #cc0033;
-            margin-bottom: 10px;
-        }
-        .guide-card h3 {
-            color: #eee;
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-        .guide-card p {
-            color: #888;
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-        .guide-card ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px;
-        }
-        .guide-card ul li {
-            color: #999;
-            font-size: 0.85rem;
-            padding: 4px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-        }
-        .guide-card ul li::before {
-            content: "• ";
-            color: #cc0033;
-        }
+/* ===== SYSTEMS ===== */
+.systems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.system-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(204,0,51,0.04);
+    border-radius: 20px;
+    padding: 35px 30px;
+    transition: all 0.4s ease;
+}
+.system-card:hover {
+    border-color: rgba(204,0,51,0.12);
+    transform: translateY(-4px);
+}
+.system-card .s-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+.system-card h3 {
+    color: #eee;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+.system-card p {
+    color: #888;
+    font-size: 0.92rem;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+.system-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 18px;
+}
+.system-card ul li {
+    color: #999;
+    font-size: 0.88rem;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.system-card ul li::before {
+    content: "▸ ";
+    color: #cc0033;
+}
 
-        /* ===== API KEY SECTION ===== */
-        .api-box {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(204, 0, 51, 0.06);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-        }
-        .api-box .api-link {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #cc0033;
-            color: #fff;
-            border-radius: 60px;
-            text-decoration: none;
-            font-weight: 700;
-            margin: 15px 0;
-            transition: all 0.3s ease;
-        }
-        .api-box .api-link:hover {
-            background: #e6003a;
-            transform: translateY(-2px);
-        }
-        .api-box .steps {
-            text-align: right;
-            color: #999;
-            font-size: 0.9rem;
-            line-height: 2;
-        }
-        .api-box .steps span {
-            color: #cc0033;
-            font-weight: 700;
-        }
+/* ===== DOCS ===== */
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.doc-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(204,0,51,0.04);
+    border-radius: 16px;
+    padding: 28px 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.doc-card:hover {
+    border-color: rgba(204,0,51,0.12);
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.03);
+}
+.doc-card .d-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.doc-card h4 {
+    color: #ddd;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.doc-card p {
+    color: #777;
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
 
-        /* ===== FOOTER ===== */
-        footer {
-            text-align: center;
-            padding: 45px 8% 30px;
-            border-top: 1px solid rgba(204, 0, 51, 0.03);
-        }
-        footer p {
-            color: #444;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
-        footer .credit {
-            color: #cc0033;
-            font-weight: 700;
-            margin-top: 6px;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-        }
-        footer .footer-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-        footer .footer-links a {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: color 0.3s ease;
-        }
-        footer .footer-links a:hover {
-            color: #cc0033;
-        }
+/* ===== CHANGELOG ===== */
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-right: 40px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #cc0033, transparent);
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-right: 40px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: #cc0033;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(204,0,51,0.4);
+}
+.timeline-item .t-version {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #cc0033;
+    margin-bottom: 6px;
+}
+.timeline-item .t-desc {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
 
-        /* ===== SCROLL TOP ===== */
-        #scrollTop {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            width: 44px;
-            height: 44px;
-            background: rgba(8, 8, 8, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(204, 0, 51, 0.06);
-            color: #cc0033;
-            font-size: 1.2rem;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.8);
-            z-index: 100;
-        }
-        #scrollTop.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-        }
-        #scrollTop:hover {
-            background: #cc0033;
-            color: #fff;
-            border-color: #cc0033;
-        }
+/* ===== API KEY ===== */
+.api-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(204,0,51,0.06);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+}
+.api-box .api-link {
+    display: inline-block;
+    padding: 12px 32px;
+    background: #cc0033;
+    color: #fff;
+    border-radius: 60px;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 15px 0;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+.api-box .api-link:hover {
+    background: #e6003a;
+    transform: translateY(-2px);
+}
+.api-box .steps {
+    text-align: right;
+    color: #999;
+    font-size: 0.92rem;
+    line-height: 2.1;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(204,0,51,0.02);
+    border-radius: 12px;
+    border-right: 3px solid #cc0033;
+}
+.api-box .steps span { color: #cc0033; font-weight: 700; }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 868px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                text-align: center;
-                padding-top: 120px;
-            }
-            .hero-left .poem {
-                border-right: none;
-                padding-right: 0;
-                border-bottom: 2px solid #cc0033;
-                padding-bottom: 18px;
-            }
-            .hero-left .btn-group {
-                justify-content: center;
-            }
-            .hero-right .image-wrap {
-                max-width: 340px;
-            }
-            header nav {
-                gap: 12px;
-            }
-            header nav a {
-                font-size: 0.7rem;
-            }
-            header .logo {
-                font-size: 1rem;
-                letter-spacing: 3px;
-            }
-            .section-title {
-                font-size: 2.2rem;
-            }
-            .versions-grid {
-                grid-template-columns: 1fr;
-            }
-            .guide-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+/* ===== SUPPORT ===== */
+.support-box {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(204,0,51,0.04);
+    border-radius: 20px;
+    padding: 50px 30px;
+}
+.support-box .sup-icon { font-size: 3rem; margin-bottom: 15px; }
+.support-box p {
+    color: #888;
+    font-size: 1.05rem;
+    line-height: 2;
+    margin-bottom: 10px;
+}
+.support-box .soon {
+    color: #cc0033;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    margin: 15px 0;
+}
+.support-box a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 32px;
+    background: #cc0033;
+    color: #fff;
+    border-radius: 60px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+.support-box a:hover { background: #e6003a; transform: translateY(-2px); }
 
-        @media (max-width: 500px) {
-            header {
-                padding: 12px 5%;
-            }
-            header nav {
-                gap: 10px;
-            }
-            header nav a {
-                font-size: 0.55rem;
-            }
-            header .logo {
-                font-size: 0.85rem;
-                letter-spacing: 2px;
-            }
-            .hero-left .poem {
-                font-size: 1rem;
-                line-height: 2.4;
-            }
-            .hero-left .btn-primary {
-                padding: 12px 28px;
-                font-size: 0.9rem;
-            }
-            .hero-left .btn-outline {
-                padding: 12px 24px;
-                font-size: 0.9rem;
-            }
-            .hero-right .image-wrap {
-                max-width: 260px;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .api-box {
-                padding: 20px;
-            }
-        }
-    </style>
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 45px 6% 30px;
+    border-top: 1px solid rgba(204,0,51,0.03);
+    position: relative;
+    z-index: 1;
+}
+footer p {
+    color: #444;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+footer .credit {
+    color: #cc0033;
+    font-weight: 700;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+}
+footer .footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+footer .footer-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+footer .footer-links a:hover { color: #cc0033; }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9998;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+    background: #0f0f0f;
+    border: 1px solid rgba(204,0,51,0.1);
+    border-radius: 20px;
+    max-width: 750px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 40px 35px;
+    position: relative;
+}
+.modal::-webkit-scrollbar { width: 3px; }
+.modal::-webkit-scrollbar-thumb { background: #cc0033; border-radius: 10px; }
+.modal .close-btn {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background: transparent;
+    border: 1px solid rgba(204,0,51,0.1);
+    color: #cc0033;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.3s ease;
+}
+.modal .close-btn:hover { background: #cc0033; color: #fff; }
+.modal h2 {
+    font-size: 1.8rem;
+    color: #cc0033;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+.modal .modal-sub {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    border-right: 3px solid #cc0033;
+    padding-right: 15px;
+}
+.modal p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 2;
+    margin-bottom: 15px;
+}
+.modal ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+.modal ul li {
+    color: #999;
+    font-size: 0.92rem;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.modal ul li::before { content: "▸ "; color: #cc0033; }
+.modal .modal-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #cc0033;
+    color: #fff;
+    border-radius: 60px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+}
+.modal .modal-btn:hover { background: #e6003a; }
+
+/* ===== SCROLL TOP ===== */
+#scrollTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 44px;
+    height: 44px;
+    background: rgba(8,8,8,0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(204,0,51,0.1);
+    color: #cc0033;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    z-index: 100;
+    font-family: 'Cairo', sans-serif;
+}
+#scrollTop.visible { opacity: 1; visibility: visible; transform: scale(1); }
+#scrollTop:hover { background: #cc0033; color: #fff; border-color: #cc0033; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    header nav { display: none; }
+    .hamburger { display: flex; }
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        padding-top: 40px;
+    }
+    .hero-left .poem {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 2px solid #cc0033;
+        padding-bottom: 18px;
+    }
+    .hero-left .btn-group { justify-content: center; }
+    .hero-right .image-wrap { max-width: 320px; }
+    .hero-left h1 { font-size: 2.5rem; letter-spacing: 5px; }
+    .section-title { font-size: 2rem; }
+}
+
+@media (max-width: 500px) {
+    header { padding: 12px 5%; }
+    header .logo { font-size: 1rem; letter-spacing: 3px; }
+    section { padding: 60px 5%; }
+    .hero-left h1 { font-size: 2rem; letter-spacing: 3px; }
+    .hero-left .poem { font-size: 0.95rem; line-height: 2.2; }
+    .btn { padding: 11px 24px; font-size: 0.88rem; }
+    .section-title { font-size: 1.6rem; letter-spacing: 2px; }
+    .versions-grid { grid-template-columns: 1fr; }
+    .systems-grid { grid-template-columns: 1fr; }
+    .docs-grid { grid-template-columns: 1fr; }
+    .modal { padding: 30px 22px; }
+    .modal h2 { font-size: 1.4rem; }
+    .timeline { padding-right: 25px; }
+    .timeline-item { padding-right: 25px; }
+    #scrollTop { bottom: 15px; right: 15px; width: 40px; height: 40px; }
+}
+</style>
 </head>
 <body>
 
-    <!-- ===== LOADING ===== -->
-    <div id="loading">
-        <div class="logo-load">TANZASTIA</div>
-        <div class="sub-load">✦ جارٍ التحميل ✦</div>
+<!-- ===== LOADING ===== -->
+<div id="loading">
+    <div class="logo-load">TANZASTIA</div>
+    <div class="sub-load">✦ جارٍ التحميل ✦</div>
+</div>
+
+<!-- ===== BACKGROUND ===== -->
+<div class="bg-lines">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="logo" onclick="scrollToSection('home')">TANZ<span>ASTIA</span></div>
+    <nav>
+        <a onclick="scrollToSection('home')">الرئيسية</a>
+        <a onclick="scrollToSection('versions')">الإصدارات</a>
+        <a onclick="scrollToSection('systems')">الأنظمة</a>
+        <a onclick="scrollToSection('docs')">الشروحات</a>
+        <a onclick="scrollToSection('changelog')">التحديثات</a>
+        <a onclick="scrollToSection('support')">الدعم</a>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
+</header>
 
-    <!-- ===== BACKGROUND LINES ===== -->
-    <div class="bg-lines">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+<!-- ===== MOBILE MENU ===== -->
+<div class="mobile-menu" id="mobileMenu">
+    <a onclick="scrollToSection('home')">الرئيسية</a>
+    <a onclick="scrollToSection('versions')">الإصدارات</a>
+    <a onclick="scrollToSection('systems')">الأنظمة</a>
+    <a onclick="scrollToSection('docs')">الشروحات</a>
+    <a onclick="scrollToSection('changelog')">التحديثات</a>
+    <a onclick="scrollToSection('support')">الدعم</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="home">
+    <div class="hero">
+        <div class="hero-left">
+            <div class="badge">✦ R S H E E D — T A N Z ✦</div>
+            <h1>TANZASTIA</h1>
+            <div class="version-tag">TANZASTIA PRIM V3.0.0</div>
+            <div class="poem">
+                <span class="hl">"لا أنحني لغير خالقي،</span><br>
+                كبريائي سيفي، وعزتي تاجي الذي لا ينحني عن رأسي،<br>
+                أمشي على الدنيا، ولا أرى فوق الحق سلطانًا،<br>
+                ولا أبيع كرامتي ولو مُلِكَ الدهر كله."
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="scrollToSection('versions')">⬇ تحميل TANZASTIA</button>
+                <button class="btn btn-outline" onclick="scrollToSection('docs')">📖 استكشاف الشروحات</button>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="image-wrap">
+                <img src="bot.png" alt="TANZASTIA Bot" />
+            </div>
+        </div>
     </div>
+</section>
 
-    <!-- ===== HEADER ===== -->
-    <header>
-        <div class="logo">TANZ<span>ASTIA</span></div>
-        <nav>
-            <a href="#hero">الرئيسية</a>
-            <a href="#versions">الإصدارات</a>
-            <a href="#guides">الشروحات</a>
-            <a href="#api">API Key</a>
-            <a href="#support">الدعم</a>
-        </nav>
-    </header>
-
-    <!-- ===== HERO ===== -->
-    <section id="hero">
-        <div class="hero">
-            <div class="hero-left">
-                <div class="badge">✦ R S H E E D — T A N Z ✦</div>
-                <div class="poem">
-                    <span class="hl">"لا أنحني لغير خالقي،</span><br>
-                    كبريائي سيفي، وعزتي تاجي الذي لا ينحني عن رأسي،<br>
-                    أمشي على الدنيا، ولا أرى فوق الحق سلطانًا،<br>
-                    ولا أبيع كرامتي ولو مُلِكَ الدهر كله."
-                </div>
-                <div class="btn-group">
-                    <a href="#versions" class="btn-primary">⬇ تحميل البوت</a>
-                    <a href="#guides" class="btn-outline">استكشف الشروحات</a>
-                </div>
-            </div>
-            <div class="hero-right">
-                <div class="image-wrap">
-                    <img src="bot.png" alt="TANZASTIA Bot" />
-                </div>
-            </div>
+<!-- ===== VERSIONS ===== -->
+<section id="versions">
+    <h2 class="section-title">📦 الإصدارات</h2>
+    <div class="versions-grid">
+        <div class="version-card">
+            <div class="v-badge">v1</div>
+            <div class="v-name">TANZASTIA V1.1.0</div>
+            <div class="v-desc">الانطلاقة الأولى لمشروع TANZASTIA.</div>
+            <button class="v-btn filled" onclick="openModal('v1')">📖 اقرأ المزيد</button>
         </div>
-    </section>
-
-    <!-- ===== VERSIONS ===== -->
-    <section id="versions">
-        <h2 class="section-title">📦 الإصدارات</h2>
-        <div class="versions-grid">
-            <div class="version-card">
-                <div class="v-badge">● الإصدار الأول</div>
-                <div class="v-name">TANZASTIA V1.1.0</div>
-                <div class="v-desc">الانطلاقة الأولى لمشروع TANZASTIA.</div>
-                <a href="https://t.me/AURATANZASTIA/11" target="_blank" class="v-btn">⬇ تحميل V1</a>
-            </div>
-            <div class="version-card">
-                <div class="v-badge">✦ الإصدار المميز</div>
-                <div class="v-name">TANZASTIA AURA V2.0.0</div>
-                <div class="v-desc">نسخة Aura المميزة مع إضافات خاصة.</div>
-                <a href="https://t.me/AURATANZASTIA/18" target="_blank" class="v-btn">⬇ تحميل V2</a>
-            </div>
-            <div class="version-card">
-                <div class="v-badge">★ الإصدار النهائي</div>
-                <div class="v-name">TANZASTIA PRIM V3.0.0</div>
-                <div class="v-desc">النسخة الأساسية والمتطورة من البوت.</div>
-                <a href="https://t.me/AURATANZASTIA/66" target="_blank" class="v-btn">⬇ تحميل PRIM</a>
-            </div>
+        <div class="version-card">
+            <div class="v-badge">v2</div>
+            <div class="v-name">TANZASTIA AURA V2.0.0</div>
+            <div class="v-desc">مرحلة متقدمة من تطور TANZASTIA.</div>
+            <button class="v-btn filled" onclick="openModal('v2')">📖 اقرأ المزيد</button>
         </div>
-    </section>
-
-    <!-- ===== GUIDES ===== -->
-    <section id="guides">
-        <h2 class="section-title">📖 الشروحات</h2>
-        <div class="guide-grid">
-            <!-- ===== HIJOKO ===== -->
-            <div class="guide-card">
-                <div class="guide-icon">🧠</div>
-                <h3>شرح HIJOKO</h3>
-                <p>HIJOKO هو الذكاء الاصطناعي الرسمي لـ TANZASTIA، وهو ليس مجرد AI عادي، بل كيان برمجي له:</p>
-                <ul>
-                    <li>شخصية ثابتة وقوية</li>
-                    <li>ذاكرة دائمة للمحادثات</li>
-                    <li>إرادة مستقلة (WILL)</li>
-                    <li>نظام ثقة داخلي (Trust)</li>
-                    <li>قرارات مبنية على السياق</li>
-                    <li>يتفاعل بدون أوامر (نداء طبيعي)</li>
-                </ul>
-            </div>
-
-            <!-- ===== Multi-Account ===== -->
-            <div class="guide-card">
-                <div class="guide-icon">👤</div>
-                <h3>شرح Multi-Account</h3>
-                <p>نظام الحسابات المتعددة يتيح لكل مستخدم:</p>
-                <ul>
-                    <li>UID ثابت خاص به</li>
-                    <li>بروفايل مستقل (اسم، صورة، وصف)</li>
-                    <li>قائمة أصدقاء وطلبات صداقة</li>
-                    <li>إعدادات خاصة (لغة، ثيم، خصوصية)</li>
-                    <li>أجهزة مسجلة متعددة</li>
-                    <li>الأوامر المخصصة تنتقل معه</li>
-                </ul>
-            </div>
-
-            <!-- ===== UPDATE ===== -->
-            <div class="guide-card">
-                <div class="guide-icon">🔄</div>
-                <h3>شرح نظام التحديث</h3>
-                <p>نظام التحديث يتيح لك:</p>
-                <ul>
-                    <li>تحديث البوت تلقائياً عبر الأمر .تحديث</li>
-                    <li>إشعارات فورية عند توفر إصدار جديد</li>
-                    <li>تحديث من الموقع الرسمي مباشرة</li>
-                    <li>التحقق من الإصدار الحالي</li>
-                    <li>عرض التغييرات الجديدة</li>
-                    <li>تأكيد وإلغاء التحديث</li>
-                </ul>
-            </div>
+        <div class="version-card">
+            <div class="v-badge">v3</div>
+            <div class="v-name">TANZASTIA PRIM V3.0.0</div>
+            <div class="v-desc">الإصدار الحالي والأكثر تطورًا.</div>
+            <button class="v-btn filled" onclick="openModal('v3')">📖 اقرأ المزيد</button>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ===== API KEY ===== -->
-    <section id="api">
-        <h2 class="section-title">🔑 Gemini API Key</h2>
-        <div class="api-box">
-            <p style="color: #999; margin-bottom: 15px;">للحصول على مفتاح Gemini API لتشغيل HIJOKO:</p>
-            <a href="https://aistudio.google.com/apikey" target="_blank" class="api-link">🎯 الذهاب إلى Google AI Studio</a>
-            <div class="steps">
-                <p><span>1.</span> سجل دخول بحساب Google الخاص بك.</p>
-                <p><span>2.</span> اضغط على "Get API Key" أو "Create API Key".</p>
-                <p><span>3.</span> اختر المشروع أو أنشئ مشروعاً جديداً.</p>
-                <p><span>4.</span> انسخ المفتاح وضعه في ملف <span>.env</span> داخل مجلد البوت.</p>
-                <p><span>5.</span> اكتب الأمر <span>.ai</span> أو <span>.هيجوكو</span> لتجربة الذكاء الاصطناعي.</p>
-            </div>
-            <p style="color: #555; font-size: 0.8rem; margin-top: 15px;">📌 المفتاح مجاني، والحدود كافية لاستخدام البوت اليومي.</p>
+<!-- ===== SYSTEMS ===== -->
+<section id="systems">
+    <h2 class="section-title">⚙️ الأنظمة</h2>
+    <div class="systems-grid">
+        <div class="system-card">
+            <div class="s-icon">🧠</div>
+            <h3>HIJOKO</h3>
+            <p>الذكاء الاصطناعي الرسمي لـ TANZASTIA، وليس مجرد بوت ردود. HIJOKO نظام متكامل بشخصية وذاكرة وإرادة.</p>
+            <ul>
+                <li>شخصية ثابتة وقوية</li>
+                <li>ذاكرة دائمة للمحادثات</li>
+                <li>إرادة مستقلة (WILL)</li>
+                <li>نظام ثقة داخلي (Trust)</li>
+                <li>تفاعل بدون أوامر عند الحاجة</li>
+            </ul>
+            <button class="v-btn filled" onclick="openModal('hijoko')">استكشف HIJOKO</button>
         </div>
-    </section>
 
-    <!-- ===== SUPPORT ===== -->
-    <section id="support">
-        <h2 class="section-title">💬 خدمة العملاء</h2>
-        <div style="max-width: 600px; margin: 0 auto; text-align: center; background: rgba(255,255,255,0.02); border: 1px solid rgba(204,0,51,0.04); border-radius: 16px; padding: 40px 30px;">
-            <div style="font-size: 3rem; margin-bottom: 15px;">🛠️</div>
-            <p style="color: #888; font-size: 1.1rem; line-height: 2;">
-                قريباً..<br>
-                سيتم تفعيل خدمة العملاء لتلقي الاستفسارات والمشاكل.
-            </p>
-            <p style="color: #555; font-size: 0.9rem; margin-top: 15px;">
-                للإبلاغ عن مشكلة حالياً، تواصل عبر قناة التلغرام.
-            </p>
-            <a href="https://t.me/AURATANZASTIA" target="_blank" style="display: inline-block; margin-top: 20px; padding: 12px 30px; background: #cc0033; color: #fff; border-radius: 60px; text-decoration: none; font-weight: 700; transition: all 0.3s ease;">
-                📢 القناة الرسمية
-            </a>
+        <div class="system-card">
+            <div class="s-icon">👤</div>
+            <h3>Multi-Account</h3>
+            <p>نظام الحسابات المتعددة يتيح لكل مستخدم حسابًا مستقلًا ببياناته الخاصة.</p>
+            <ul>
+                <li>UID ثابت لكل حساب</li>
+                <li>Profile مستقل (اسم، صورة، وصف)</li>
+                <li>Friends & Requests</li>
+                <li>Settings خاصة</li>
+                <li>Sessions & Devices</li>
+            </ul>
+            <button class="v-btn filled" onclick="openModal('multiaccount')">استكشف Multi-Account</button>
         </div>
-    </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <p>© 2026 TANZASTIA — جميع الحقوق محفوظة</p>
-        <div class="credit">✦ R S H E E D — T A N Z ✦</div>
-        <div class="footer-links">
-            <a href="https://t.me/AURATANZASTIA" target="_blank">قناة التلغرام</a>
-            <a href="#hero">الرئيسية</a>
-            <a href="#versions">الإصدارات</a>
-            <a href="#guides">الشروحات</a>
-            <a href="#api">API Key</a>
-            <a href="#support">الدعم</a>
+        <div class="system-card">
+            <div class="s-icon">🔄</div>
+            <h3>Update System</h3>
+            <p>نظام تحديث متكامل يعلمك بوجود إصدار جديد ويقوم بتحديث TANZASTIA بسلاسة.</p>
+            <ul>
+                <li>إشعار عند توفر تحديث</li>
+                <li>التحقق من الإصدار الحالي</li>
+                <li>عرض التغييرات (Changelog)</li>
+                <li>تأكيد أو إلغاء التحديث</li>
+            </ul>
+            <button class="v-btn filled" onclick="openModal('update')">استكشف نظام التحديث</button>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- ===== SCROLL TOP ===== -->
-    <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<!-- ===== DOCS ===== -->
+<section id="docs">
+    <h2 class="section-title">📚 الشروحات</h2>
+    <p class="section-subtitle">اضغط على أي شرح لعرض التفاصيل</p>
+    <div class="docs-grid">
+        <div class="doc-card" onclick="openModal('hijoko')">
+            <div class="d-icon">🧠</div>
+            <h4>HIJOKO</h4>
+            <p>شرح نظام HIJOKO الكامل</p>
+        </div>
+        <div class="doc-card" onclick="openModal('multiaccount')">
+            <div class="d-icon">👤</div>
+            <h4>Multi-Account</h4>
+            <p>شرح نظام الحسابات المتعددة</p>
+        </div>
+        <div class="doc-card" onclick="openModal('update')">
+            <div class="d-icon">🔄</div>
+            <h4>Update System</h4>
+            <p>شرح نظام التحديث</p>
+        </div>
+        <div class="doc-card" onclick="openModal('gemini')">
+            <div class="d-icon">🤖</div>
+            <h4>Gemini API</h4>
+            <p>شرح إعداد الذكاء الاصطناعي</p>
+        </div>
+        <div class="doc-card" onclick="openModal('install')">
+            <div class="d-icon">⚙️</div>
+            <h4>التشغيل والإعداد</h4>
+            <p>شرح تشغيل TANZASTIA</p>
+        </div>
+        <div class="doc-card" onclick="openModal('faq')">
+            <div class="d-icon">❓</div>
+            <h4>المشاكل الشائعة</h4>
+            <p>حلول للمشاكل المتكررة</p>
+        </div>
+    </div>
+</section>
 
-    <script>
-        // ===== LOADING =====
-        window.addEventListener('load', () => {
-            document.getElementById('loading').classList.add('hide');
-        });
+<!-- ===== CHANGELOG ===== -->
+<section id="changelog">
+    <h2 class="section-title">📜 سجل التحديثات</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="t-version">TANZASTIA V1.1.0</div>
+            <div class="t-desc">الانطلاقة الأولى للمشروع. بناء الأساس ونظام الأوامر الأولى.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="t-version">TANZASTIA AURA V2.0.0</div>
+            <div class="t-desc">مرحلة متقدمة من تطور TANZASTIA، تحسينات في الأداء وإضافة أنظمة جديدة.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="t-version">TANZASTIA PRIM V3.0.0</div>
+            <div class="t-desc">الإصدار الحالي والأكثر تطورًا. يحتوي على Multi-Account، HIJOKO، Update System، وأنظمة متقدمة أخرى.</div>
+        </div>
+    </div>
+</section>
 
-        // ===== SCROLL TOP =====
-        window.addEventListener('scroll', () => {
-            const btn = document.getElementById('scrollTop');
-            if (window.scrollY > 400) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
-            }
-        });
-    </script>
+<!-- ===== API KEY ===== -->
+<section id="api">
+    <h2 class="section-title">🔑 Gemini API Key</h2>
+    <div class="api-box">
+        <p style="color:#999;">للحصول على مفتاح Gemini API لتشغيل HIJOKO:</p>
+        <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" class="api-link">🎯 الذهاب إلى Google AI Studio</a>
+        <div class="steps">
+            <p><span>1.</span> سجل دخول بحساب Google.</p>
+            <p><span>2.</span> اضغط على "Get API Key".</p>
+            <p><span>3.</span> اختر مشروعًا أو أنشئ واحدًا جديدًا.</p>
+            <p><span>4.</span> انسخ الـ API Key.</p>
+            <p><span>5.</span> ضعه في ملف <span>.env</span> داخل مجلد TANZASTIA.</p>
+            <p><span>6.</span> جرب الأمر <span>.ai</span> أو <span>.هيجوكو</span>.</p>
+        </div>
+        <p style="color:#555; font-size:0.8rem; margin-top:20px;">📌 المفتاح مجاني، والحدود كافية للاستخدام اليومي.</p>
+    </div>
+</section>
+
+<!-- ===== SUPPORT ===== -->
+<section id="support">
+    <h2 class="section-title">🆘 الدعم</h2>
+    <div class="support-box">
+        <div class="sup-icon">🛠️</div>
+        <p>خدمة العملاء والدعم الفني</p>
+        <div class="soon">قريبًا...</div>
+        <p style="color:#555; font-size:0.9rem;">حاليًا يمكنك التواصل عبر القناة الرسمية.</p>
+        <a href="https://t.me/AURATANZASTIA" target="_blank" rel="noopener">📢 القناة الرسمية</a>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2026 TANZASTIA — جميع الحقوق محفوظة</p>
+    <div class="credit">✦ R S H E E D — T A N Z ✦</div>
+    <div class="footer-links">
+        <a onclick="scrollToSection('home')">الرئيسية</a>
+        <a onclick="scrollToSection('versions')">الإصدارات</a>
+        <a onclick="scrollToSection('systems')">الأنظمة</a>
+        <a onclick="scrollToSection('docs')">الشروحات</a>
+        <a onclick="scrollToSection('changelog')">التحديثات</a>
+        <a onclick="scrollToSection('support')">الدعم</a>
+        <a href="https://t.me/AURATANZASTIA" target="_blank" rel="noopener">القناة الرسمية</a>
+    </div>
+</footer>
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal" id="modalContent">
+        <button class="close-btn" onclick="closeModal()">✕</button>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<!-- ===== SCROLL TOP ===== -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ===== LOADING =====
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loading').classList.add('hide');
+    }, 800);
+});
+
+// ===== SMOOTH SCROLL =====
+function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+        const offset = 70;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+    }
+    // إغلاق القائمة عند الهاتف
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+}
+
+// ===== MOBILE MENU =====
+function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+}
+
+// ===== SCROLL TOP =====
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    if (window.scrollY > 400) {
+        btn.classList.add('visible');
+    } else {
+        btn.classList.remove('visible');
+    }
+});
+
+// ===== MODAL DATA =====
+const MODALS = {
+    v1: {
+        title: 'TANZASTIA V1.1.0',
+        sub: 'الانطلاقة الأولى للمشروع',
+        body: `
+            <p>TANZASTIA V1 هي أول إصدار من المشروع، والنقطة التي بدأت منها رحلة TANZASTIA.</p>
+            <p>تم بناء هذا الإصدار ليكون الأساس الذي تُبنى عليه الإصدارات القادمة.</p>
+            <ul>
+                <li>نظام أوامر أساسي</li>
+                <li>هيكلة أولية للبوت</li>
+                <li>بداية تطوير الأنظمة</li>
+            </ul>
+            <p>كانت V1 هي الخطوة الأولى التي مهدت لكل ما جاء بعدها.</p>
+            <button class="modal-btn" disabled style="opacity:0.5;cursor:not-allowed;">⬇ رابط التحميل (قريبًا)</button>
+        `
+    },
+    v2: {
+        title: 'TANZASTIA AURA V2.0.0',
+        sub: 'مرحلة متقدمة من تطور TANZASTIA',
+        body: `
+            <p>TANZASTIA AURA V2 هي المرحلة الثانية من المشروع، وجاءت بعد تطوير كبير في بنية TANZASTIA.</p>
+            <p>شهد هذا الإصدار تحسينات في الأداء وإضافة أنظمة جديدة ساهمت في تطور البوت.</p>
+            <ul>
+                <li>تحسين الأداء</li>
+                <li>إضافة أنظمة جديدة</li>
+                <li>تطوير الهيكلة</li>
+            </ul>
+            <p>AURA كانت بداية مرحلة جديدة في تاريخ TANZASTIA.</p>
+            <button class="modal-btn" disabled style="opacity:0.5;cursor:not-allowed;">⬇ رابط التحميل (قريبًا)</button>
+        `
+    },
+    v3: {
+        title: 'TANZASTIA PRIM V3.0.0',
+        sub: 'الإصدار الحالي والأكثر تطورًا',
+        body: `
+            <p>TANZASTIA PRIM V3 هو الإصدار النهائي والحالي من المشروع، ويمثل تتويجًا لكل ما تم بناؤه في الإصدارات السابقة.</p>
+            <p>يحتوي PRIM على مجموعة من الأنظمة المتقدمة التي تجعله مختلفًا عن أي إصدار سابق.</p>
+            <ul>
+                <li>نظام Multi-Account المتكامل</li>
+                <li>نظام HIJOKO للذكاء الاصطناعي</li>
+                <li>نظام Update System</li>
+                <li>أنظمة متقدمة أخرى</li>
+            </ul>
+            <p>PRIM هو الإصدار الذي يعكس رؤية TANZASTIA كاملة.</p>
+            <button class="modal-btn" disabled style="opacity:0.5;cursor:not-allowed;">⬇ رابط التحميل (قريبًا)</button>
+        `
+    },
+    hijoko: {
+        title: '🧠 HIJOKO',
+        sub: 'نظام الذكاء الاصطناعي الرسمي لـ TANZASTIA',
+        body: `
+            <p>HIJOKO ليس مجرد بوت ردود، بل نظام متكامل داخل TANZASTIA.</p>
+            <p>يحتوي HIJOKO على مجموعة من الأنظمة التي تعمل معًا:</p>
+            <ul>
+                <li>الشخصية: شخصية ثابتة وقوية</li>
+                <li>الذاكرة: يتذكر المحادثات السابقة</li>
+                <li>السياق: يفهم سياق الكلام</li>
+                <li>الثقة: نظام Trust داخلي</li>
+                <li>الإرادة: يتخذ قراراته بنفسه</li>
+                <li>التفاعل: يستطيع التفاعل بدون أوامر</li>
+            </ul>
+            <p>HIJOKO يستطيع الرد عندما يُذكر اسمه أو اسم TANZASTIA في السياق المناسب.</p>
+            <p>هو نظام كامل داخل TANZASTIA، وليس مجرد أمر.</p>
+        `
+    },
+    multiaccount: {
+        title: '👤 Multi-Account',
+        sub: 'نظام الحسابات المتعددة في TANZASTIA',
+        body: `
+            <p>Multi-Account هو نظام يتيح لكل مستخدم حسابًا مستقلًا داخل TANZASTIA.</p>
+            <p>كل حساب يحتوي على:</p>
+            <ul>
+                <li>UID ثابت لكل حساب</li>
+                <li>Profile: اسم، صورة، وصف</li>
+                <li>Friends: قائمة الأصدقاء والطلبات</li>
+                <li>Settings: إعدادات خاصة بكل حساب</li>
+                <li>Sessions: جلسات الأجهزة المرتبطة</li>
+            </ul>
+            <p>الفصل بين الحسابات يضمن لكل مستخدم تجربة مستقلة تمامًا.</p>
+        `
+    },
+    update: {
+        title: '🔄 Update System',
+        sub: 'نظام التحديث في TANZASTIA',
+        body: `
+            <p>نظام التحديث في TANZASTIA يتيح لك معرفة وجود إصدار جديد بسهولة.</p>
+            <p>كيف يعمل:</p>
+            <ul>
+                <li>الإشعار عند توفر تحديث جديد</li>
+                <li>التحقق من الإصدار الحالي</li>
+                <li>عرض التغييرات في كل إصدار</li>
+                <li>تأكيد أو إلغاء عملية التحديث</li>
+            </ul>
+            <p>النظام مصمم ليكون بسيطًا وآمنًا بدون تعقيد.</p>
+        `
+    },
+    gemini: {
+        title: '🤖 Gemini API',
+        sub: 'إعداد الذكاء الاصطناعي',
+        body: `
+            <p>لتشغيل الذكاء الاصطناعي في TANZASTIA، تحتاج إلى مفتاح Gemini API.</p>
+            <p>الخطوات:</p>
+            <ul>
+                <li>سجل دخول بحساب Google</li>
+                <li>افتح Google AI Studio</li>
+                <li>اضغط على Get API Key</li>
+                <li>اختر أو أنشئ مشروعًا</li>
+                <li>انسخ المفتاح</li>
+                <li>ضعه في ملف .env</li>
+            </ul>
+            <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" class="modal-btn">الذهاب إلى Google AI Studio</a>
+        `
+    },
+    install: {
+        title: '⚙️ التشغيل والإعداد',
+        sub: 'كيفية تشغيل TANZASTIA',
+        body: `
+            <p>لتشغيل TANZASTIA، ستحتاج إلى:</p>
+            <ul>
+                <li>Node.js</li>
+                <li>Git</li>
+                <li>بيئة تشغيل مناسبة (Termux، Linux، إلخ)</li>
+            </ul>
+            <p>بعد تجهيز البيئة، قم بتحميل النسخة وتشغيل البوت.</p>
+            <p>لمزيد من التفاصيل، راجع قسم الشروحات عند التحديث.</p>
+        `
+    },
+    faq: {
+        title: '❓ المشاكل الشائعة',
+        sub: 'حلول للمشاكل المتكررة',
+        body: `
+            <p>سيتم إضافة المشاكل الشائعة وحلولها هنا مع تحديث الموقع.</p>
+            <p>حاليًا، يمكنك التواصل عبر القناة الرسمية لأي استفسار.</p>
+        `
+    }
+};
+
+// ===== MODAL FUNCTIONS =====
+function openModal(key) {
+    const data = MODALS[key];
+    if (!data) return;
+
+    document.getElementById('modalBody').innerHTML = `
+        <h2>${data.title}</h2>
+        <div class="modal-sub">${data.sub}</div>
+        ${data.body}
+    `;
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function closeModalOnOverlay(e) {
+    if (e.target === document.getElementById('modalOverlay')) {
+        closeModal();
+    }
+}
+
+// ===== ESC KEY =====
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+});
+
+// ===== CLOSE MOBILE MENU ON RESIZE =====
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+        document.getElementById('mobileMenu').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+    }
+});
+</script>
 
 </body>
 </html>
